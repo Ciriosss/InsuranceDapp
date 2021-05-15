@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
-# Profile models
 class Profile(AbstractUser):
 
     address = models.TextField(max_length=50, default = "")

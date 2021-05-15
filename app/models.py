@@ -2,7 +2,7 @@ from django.db import models
 from user.models import Profile
 
 
-# Policy model
+#model for insurence offered
 class Insurance(models.Model):
     name = models.TextField(max_length=50)
     description = models.TextField()
@@ -12,7 +12,7 @@ class Insurance(models.Model):
 
     def __str__(self):
         return self.name
-
+#model for policies purchased
 class Policy(models.Model):
     insured = models.ForeignKey(Profile, on_delete= models.CASCADE)
     policy = models.ForeignKey(Insurance, on_delete= models.CASCADE)
