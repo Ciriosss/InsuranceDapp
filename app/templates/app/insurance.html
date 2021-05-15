@@ -1,0 +1,15 @@
+{% extends "app/base.html" %}
+{% block content %}
+<h1> Home</h1> <br>
+<legend class = 'border-bottom mb-4'><b>OUR INSURANCE POLICIES </b> </legend>
+
+{% for insurance in insurance %}
+    <div class="card" style="width: 50rem;">
+      <div class="card-body">
+        <h5 class="card-title"> {{ insurance.name }}</h5>
+        <p class="card-text"> {{ insurance.description }}</p>
+        <a href="{% url 'insuranceDetail' pk=insurance.pk %}" class="card-link">More informations</a>
+      </div>
+    </div> <br>
+{% endfor %}
+{% endblock %}

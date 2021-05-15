@@ -1,0 +1,20 @@
+{% extends "app/base.html" %}
+{% block content %}
+<div class="card">
+
+  <div class="card-header">
+    {{ policy.name }}
+  </div>
+
+  <div class="card-body">
+    <p class="card-text"> {{ policy.description }} </p>
+    <h5 class="card-title">Details</h5>
+    <p class="card-text"><b> Price : </b> {{ policy.price }}  HMS </p>
+    <p class="card-text"><b>Max repayment :</b> {{ policy.maxRepayment }}  HMS </p>
+    <p class="card-text"><b>Duration : </b>{{ policy.duration }}  DAYS</p>
+
+    <a href="{% url 'orderCompleted' pk=policy.pk %}" class="btn btn-primary">Buy now</a>
+  </div>
+
+</div>
+{% endblock %}

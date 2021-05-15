@@ -1,0 +1,36 @@
+{% extends "app/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-life-preserver" viewBox="0 0 16 16">
+  <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm6.43-5.228a7.025 7.025 0 0 1-3.658 3.658l-1.115-2.788a4.015 4.015 0 0 0 1.985-1.985l2.788 1.115zM5.228 14.43a7.025 7.025 0 0 1-3.658-3.658l2.788-1.115a4.015 4.015 0 0 0 1.985 1.985L5.228 14.43zm9.202-9.202-2.788 1.115a4.015 4.015 0 0 0-1.985-1.985l1.115-2.788a7.025 7.025 0 0 1 3.658 3.658zm-8.087-.87a4.015 4.015 0 0 0-1.985 1.985L1.57 5.228A7.025 7.025 0 0 1 5.228 1.57l1.115 2.788zM8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+</svg>
+
+<legend class = 'border-bottom mb-4'><h4> <font color="#f15050"> HAMSA TOKEN </font></h4> </legend>
+
+    <div class="media-body">
+        <strong><font color = "black">Symbol:</font> <font color = "grey"> HMS </font></strong><br>
+        <strong><font color = "black">Total supply :</font> <font color = "grey"> 1000000000 </font></strong><br>
+        <strong><font color = "black">Distributed tokens : </font><font color = "grey"> {{tokenSupply}}</font> </strong><br>
+    </div>
+
+<br>
+<br>
+
+<form method = 'POST'>
+    {% csrf_token %}
+    <fieldset class = 'form-group'>
+        <legend class = 'border-bottom mb-4'></legend>
+        <b> Insert the ether quantity that you want convert in HAMSA Token considering that:</b>
+        <h2> 1 ETH = 100 TOKEN </h2>
+        <br>
+        {{ form|crispy }}
+    </fieldset>
+    <div class="form-group">
+        <button class="btn btn-outline-info" type="submit" name ="buy">Buy Token</button>
+    </div>
+</form> <br> <br>
+
+
+{% endblock %}
+
