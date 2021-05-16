@@ -5,7 +5,7 @@ import json
 ganache_url = "HTTP://127.0.0.1:8545"
 web3 = Web3(Web3.HTTPProvider(ganache_url))
 
-# smart contract info
+# smart contract deatail
 contractAddress = web3.toChecksumAddress("0xCad3c874F0118D4244C105Ac75EA3a8584d16f92")
 path = "C:/Users/domen/PycharmProjects/solidity/insurance/truffle/build/contracts/HAMSAToken.json"
 
@@ -65,7 +65,10 @@ def buyPolicy(_from, _value):
     _to = web3.eth.accounts[0]
     _value = int(_value)
     # contract function to transfer the ERC20 token
-    contract.functions.transferFrom(_from,_to, _value).transact()
+    tx = contract.functions.transferFrom(_from,_to, _value).transact()
+
+    return web3.toHex(tx)
+
 
 def getTokenBalance(profile):
 

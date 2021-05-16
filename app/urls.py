@@ -19,7 +19,7 @@ from . import views
 urlpatterns = [
     path('', views.insurance, name = 'insurance'),
     path('checkPolicyValidity/', views.checkPolicyValidity, name = 'checkPolicyValidity'),
-    path('transaction/<int:pk>/', views.transactionDetail, name = 'transactionDetail'),
+    path('transaction/<str:tx>/', views.transactionDetail, name = 'transactionDetail'),
     path('transactions/', views.transactions, name = 'transactions'),
 
 ]

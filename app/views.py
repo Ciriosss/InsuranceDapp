@@ -14,11 +14,11 @@ cron job view that  which verifies the validity of the policies currently active
 every day at 00.00 it check if there are policies that expire on that date
 """
 def transactions(request):
-    transactions = Transaction.objects.all()
+    transactions = Transaction.objects.all().order_by('-date')
     return render(request, 'app/transactions.html', {'transactions': transactions})
 
-def transactionDetail(request, pk):
-    transaction = Transaction.objects.get(pk = pk)
+def transactionDetail(request, tx ):
+    transaction = Transaction.objects.get(tx = tx)
     return render(request, 'app/transactionDetail.html', {'transaction': transaction})
 
 

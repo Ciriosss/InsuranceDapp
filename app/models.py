@@ -12,6 +12,7 @@ class Insurance(models.Model):
 
     def __str__(self):
         return self.name
+
 #model for policies purchased
 class Policy(models.Model):
     insured = models.ForeignKey(Profile, on_delete= models.CASCADE)
@@ -19,3 +20,4 @@ class Policy(models.Model):
     date = models.DateTimeField(auto_now_add=True )
     active = models.BooleanField(default=True)
     expiration = models.DateTimeField(auto_now_add=True)
+    tx = models.TextField(max_length=100, default=None)

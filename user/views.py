@@ -62,7 +62,7 @@ def orderCompleted(request, pk):
 
     try:
         # function that connects with the smart contract to make the token transaction
-        buyPolicy(_from, _value)
+        tx = buyPolicy(_from, _value)
 
         #obtaining the expiry date of the policy
         duration = timedelta(days=policy.duration)
@@ -71,6 +71,8 @@ def orderCompleted(request, pk):
 
         newPolicy = Policy.objects.create(insured=profile, policy=policy)
         newPolicy.expiration = expiration
+        newPolicy.tx = tx
+        Transaction.objects.create(addressFrom=profile.address, addressTo="0xCad3c874F0118D4244C105Ac75EA3a8584d16f92", amount = 0, tx=tx)
         newPolicy.save()
 
     except:
@@ -78,7 +80,7 @@ def orderCompleted(request, pk):
         messages.warning(request,'Something went wrong, check your balance')
         return redirect('profile')
 
-    return render(request, 'user/orderCompleted.html', {'expiration' : expiration})
+    return render(request, 'user/orderCompleted.html', {'expiration' : expiration, 'tx' : tx})
 
 
 #view where users can import them ethereum account
