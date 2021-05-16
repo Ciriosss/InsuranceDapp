@@ -1,3 +1,4 @@
+
 This project is an insurance platform.
 
 In this project, users can choose the insurance policy they prefer (on the car, home, damage, etc.).
@@ -10,3 +11,5 @@ I developed this platform using:
 -MongoDb (Robo3t)
 -solidity
 -web3.py
+
+[Uploading Progetto Ethereum  web3 di Ciriello Domenico .pdf…]()
